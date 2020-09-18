@@ -52,8 +52,10 @@
 		04B48C512515756500915D4E /* ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				04B48C622515787A00915D4E /* Model */,
+				04B48C632515788F00915D4E /* View */,
+				04B48C642515789300915D4E /* Controller */,
 				04B48C522515756500915D4E /* ecommerceApp.swift */,
-				04B48C542515756500915D4E /* ContentView.swift */,
 				04B48C562515756700915D4E /* Assets.xcassets */,
 				04B48C5B2515756700915D4E /* Info.plist */,
 				04B48C582515756700915D4E /* Preview Content */,
@@ -67,6 +69,28 @@
 				04B48C592515756700915D4E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		04B48C622515787A00915D4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04B48C632515788F00915D4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B48C542515756500915D4E /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04B48C642515789300915D4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
