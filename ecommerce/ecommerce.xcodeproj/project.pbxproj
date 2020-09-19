@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0422FA1E2515869800E237D0 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422FA1D2515869800E237D0 /* LoginPage.swift */; };
+		0495C2A425159AF400CF998A /* BuyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2A325159AF400CF998A /* BuyPage.swift */; };
+		0495C2A725159B4700CF998A /* UserTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2A625159B4700CF998A /* UserTabView.swift */; };
+		0495C2AC2515A3E800CF998A /* AdminStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2AB2515A3E800CF998A /* AdminStorage.swift */; };
+		0495C2AF2515A90A00CF998A /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2AE2515A90A00CF998A /* AddItem.swift */; };
 		04B48C532515756500915D4E /* ecommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B48C522515756500915D4E /* ecommerceApp.swift */; };
 		04B48C552515756500915D4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B48C542515756500915D4E /* ContentView.swift */; };
 		04B48C572515756700915D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B48C562515756700915D4E /* Assets.xcassets */; };
@@ -14,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0422FA1D2515869800E237D0 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		0495C2A325159AF400CF998A /* BuyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPage.swift; sourceTree = "<group>"; };
+		0495C2A625159B4700CF998A /* UserTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabView.swift; sourceTree = "<group>"; };
+		0495C2AB2515A3E800CF998A /* AdminStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStorage.swift; sourceTree = "<group>"; };
+		0495C2AE2515A90A00CF998A /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
 		04B48C4F2515756500915D4E /* ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B48C522515756500915D4E /* ecommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ecommerceApp.swift; sourceTree = "<group>"; };
 		04B48C542515756500915D4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +43,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0422FA1B2515867300E237D0 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				0495C2A625159B4700CF998A /* UserTabView.swift */,
+				0422FA1D2515869800E237D0 /* LoginPage.swift */,
+				0495C2A325159AF400CF998A /* BuyPage.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		0422FA1C2515867900E237D0 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				0495C2AB2515A3E800CF998A /* AdminStorage.swift */,
+				0495C2AE2515A90A00CF998A /* AddItem.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		04B48C462515756400915D4E = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +110,8 @@
 		04B48C632515788F00915D4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0422FA1C2515867900E237D0 /* Admin */,
+				0422FA1B2515867300E237D0 /* Client */,
 				04B48C542515756500915D4E /* ContentView.swift */,
 			);
 			path = View;
@@ -163,6 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B48C552515756500915D4E /* ContentView.swift in Sources */,
+				0495C2A425159AF400CF998A /* BuyPage.swift in Sources */,
+				0495C2AC2515A3E800CF998A /* AdminStorage.swift in Sources */,
+				0422FA1E2515869800E237D0 /* LoginPage.swift in Sources */,
+				0495C2AF2515A90A00CF998A /* AddItem.swift in Sources */,
+				0495C2A725159B4700CF998A /* UserTabView.swift in Sources */,
 				04B48C532515756500915D4E /* ecommerceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,7 +337,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lupe.ecommerce;
+				PRODUCT_BUNDLE_IDENTIFIER = lupe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,7 +359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lupe.ecommerce;
+				PRODUCT_BUNDLE_IDENTIFIER = lupe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

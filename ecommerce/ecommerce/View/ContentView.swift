@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isLoggedIn: Bool = false
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            UserTabView(isLoggedIn: $isLoggedIn)
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Client")
+                }
+            AdminStorage()
+                .tabItem {
+                    Image(systemName: "cloud")
+                    Text("Admin")
+                }
+        }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
