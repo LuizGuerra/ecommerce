@@ -34,9 +34,9 @@ struct BuyPage: View {
             }
             Button(action: {
                 itemsInCart.toggle()
-                withAnimation {
+                withAnimation(.easeInOut, {
                     buyButtonColor = itemsInCart ? .green : .red
-                }
+                })
             }, label: {
                 HStack {
                     Spacer()

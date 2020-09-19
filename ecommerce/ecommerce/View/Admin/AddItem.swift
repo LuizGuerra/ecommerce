@@ -26,6 +26,9 @@ struct AddItem: View {
                         }
                         Section {
                             Button(action: {
+                                if !isNumber(str: ammount) {
+                                    return
+                                }
                                 if itemName.count > 0 {
                                     storage.items.append(itemName)
                                     isAddingItem.toggle()
@@ -52,6 +55,13 @@ struct AddItem: View {
                 }
             }
         }
+    }
+    
+    private func isNumber(str: String) -> Bool {
+        for c in str {
+            if !c.isNumber { return false }
+        }
+        return true
     }
 }
 
