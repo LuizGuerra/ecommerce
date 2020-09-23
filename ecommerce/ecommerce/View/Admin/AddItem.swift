@@ -10,9 +10,10 @@ import SwiftUI
 struct AddItem: View {
     @State private var itemName: String = ""
     @State private var ammount: String = ""
+    @State private var price: String = ""
     @Binding var isAddingItem: Bool
     
-    var storage: Storage
+    var data: DataManagerViewModel
     
     var body: some View {
         ZStack {
@@ -22,17 +23,16 @@ struct AddItem: View {
                         Section {
                             TextField("Item Name", text: $itemName)
                             TextField("Ammount", text: $ammount)
+                                .keyboardType(.numberPad)
+                            TextField("Price", text: $price)
                                 .keyboardType(.decimalPad)
                         }
                         Section {
                             Button(action: {
-                                if !isNumber(str: ammount) {
-                                    return
+                                if isDataRight() {
+                                    addItem()
                                 }
-                                if itemName.count > 0 {
-                                    storage.items.append(itemName)
-                                    isAddingItem.toggle()
-                                }
+                                isAddingItem.toggle()
                             }, label: {
                                 HStack {
                                     Spacer()
@@ -57,17 +57,20 @@ struct AddItem: View {
         }
     }
     
-    private func isNumber(str: String) -> Bool {
-        for c in str {
-            if !c.isNumber { return false }
-        }
-        return true
+    private func isDataRight() -> Bool {
+        return !itemName.isEmpty && (Int(ammount) ?? 0) > 0 && (Float(price) ?? 0) > 0
+    }
+    
+    private func addItem() {
+        guard let price = Float(ammount), let ammount = Int(ammount) else { return }
+        data.productList.insert(Product(name: itemName, price: price, ammount: ammount), at: 0)
+        print("Item added")
     }
 }
 
 struct AddItem_Previews: PreviewProvider {
     @State private static var isAddingItem = true
     static var previews: some View {
-        AddItem(isAddingItem: $isAddingItem, storage: Storage())
+        AddItem(isAddingItem: $isAddingItem, data: DataManagerViewModel())
     }
 }
