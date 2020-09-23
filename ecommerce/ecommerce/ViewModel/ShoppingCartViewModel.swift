@@ -18,6 +18,14 @@ class ShoppingCart: ObservableObject {
         return total
     }
     
+    func placeOrder(product: Product, maxOrders: Int) {
+        if let index = products.firstIndex(where: { $0.name == product.name }) {
+            products[index].ammount = products[index].ammount + product.ammount >= maxOrders ? maxOrders : products[index].ammount + product.ammount
+        } else {
+            products.insert(product, at: 0)
+        }
+    }
+    
     func emptyCart() {
         products.removeAll()
     }
