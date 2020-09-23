@@ -1,6 +1,6 @@
 # ecommerce
 
-This is an example application for a ecommerce app.
+This is an example application for an ecommerce app.
 It came to fruition an architecture assignment. The selected architecture was MVVM.
 
 Future plans to this small project:
