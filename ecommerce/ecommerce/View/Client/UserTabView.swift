@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct UserTabView: View {
-    @Binding var isLoggedIn: Bool
+    @ObservedObject var data: DataManagerViewModel
+    @State private var loggedUserCPF = ""
+    @State var isLoggedIn: Bool = false
     var body: some View {
         ZStack {
             if isLoggedIn {
-                BuyPage(isLoggedIn: $isLoggedIn)
+                BuyPage(isLoggedIn: $isLoggedIn, client: data.users.first(where: { $0.cpf == loggedUserCPF}) ?? Client(name: "", userName: "", password: "", cpf: "", address: ""), data: data)
             } else {
-                LoginPage(isLoggedIn: $isLoggedIn)
-//                BuyPage()
+                LoginPage(data: data, isLoggedIn: $isLoggedIn, userCPF: $loggedUserCPF)
             }
         }
     }
 }
 
 struct UserTabView_Previews: PreviewProvider {
-    @State static var isLoggedIn: Bool = false
     static var previews: some View {
-        UserTabView(isLoggedIn: $isLoggedIn)
+        UserTabView(data: DataManagerViewModel())
     }
 }
