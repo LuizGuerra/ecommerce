@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductsList: View {
     var productList: [Product]
-    var shoppingCart: ShoppingCart
+    @ObservedObject var shoppingCart: ShoppingCart
     var body: some View {
         List(productList, id: \.id) { product in
             if product.ammount > 0 {
