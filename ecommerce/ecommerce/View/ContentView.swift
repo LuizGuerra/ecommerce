@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isLoggedIn: Bool = false
+    @ObservedObject var data: DataManagerViewModel
     var body: some View {
         TabView {
-            UserTabView(isLoggedIn: $isLoggedIn)
+            UserTabView(data: data)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Client")
                 }
-            AdminStorage()
+            AdminStorage(data: data)
                 .tabItem {
                     Image(systemName: "cloud")
                     Text("Admin")
@@ -25,10 +25,8 @@ struct ContentView: View {
     }
 }
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(data: DataManagerViewModel())
     }
 }
