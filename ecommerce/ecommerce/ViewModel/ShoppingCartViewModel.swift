@@ -7,14 +7,18 @@
 
 import SwiftUI
 
-struct ShoppingCartViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class ShoppingCart: ObservableObject {
+    @Published var products = [Product]()
+    
+    func getTotal() -> Float {
+        var total = Float.zero
+        for item in products {
+            total += item.price * Float(item.ammount)
+        }
+        return total
     }
-}
-
-struct ShoppingCartViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        ShoppingCartViewModel()
+    
+    func emptyCart() {
+        products.removeAll()
     }
 }
