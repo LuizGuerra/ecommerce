@@ -10,9 +10,14 @@ import SwiftUI
 struct LoginPage: View {
     @State private var login: String = ""
     @State private var password: String = ""
-    @State private var signupScreen = false
+    @State private var wrongInfo = false
     
+    @State private var signupScreen = false
+    @State private var buttonColor = Color.black
+    
+    var data: DataManagerViewModel
     @Binding var isLoggedIn: Bool
+    @Binding var userCPF: String
     
     var body: some View {
         ZStack {
@@ -29,24 +34,36 @@ struct LoginPage: View {
                         .padding()
                         .background(Color.white)
                         .cornerRadius(4)
+                        .onChange(of: login, perform: { value in
+                            if buttonColor == .red {
+                                withAnimation{
+                                    buttonColor = .black
+                                }
+                            }
+                        })
                     SecureField("Password", text: $password)
                         .textContentType(.password)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(4)
+                        .onChange(of: login, perform: { value in
+                            if buttonColor == .red {
+                                withAnimation{
+                                    buttonColor = .black
+                                }
+                            }
+                        })
                 }
                 .padding()
                 VStack {
                     Button(action: {
-                        if login.count > 3 && password.count > 3 {
-                            isLoggedIn.toggle()
-                        }
+                        connect()
                     }, label: {
                         Text("Login")
                             .accentColor(Color.white)
                             .padding(.horizontal, 64)
                             .padding(.vertical, 16)
-                            .background(Color.black)
+                            .background(buttonColor)
                             .cornerRadius(4)
                     })
                     Button(action: {
@@ -56,11 +73,29 @@ struct LoginPage: View {
                             .padding()
                     })
                 }
+            }.sheet(isPresented: $signupScreen, content: {
+                SignUpView(data: data, signupView: $signupScreen)
+            })
+            .alert(isPresented: $wrongInfo, content: {
+                Alert(title: Text("Invalid login or password"))
+            })
+        }
+    }
+    
+    private func connect() {
+        if login.count > 3 && password.count > 3 {
+            if let user = data.users.first(where: { $0.userName == login }) {
+                if password == user.password {
+                    userCPF = user.cpf
+                    isLoggedIn.toggle()
+                    return
+                }
             }
         }
-        .sheet(item: $signupScreen, content: {
-            Text("Hewwo")
-        })
+        wrongInfo.toggle()
+        withAnimation{
+            buttonColor = .red
+        }
     }
 }
 
@@ -83,7 +118,8 @@ struct AnimatedBackground: View {
 
 struct LoginPage_Previews: PreviewProvider {
     @State static var isLoggedIn = false
+    @State static var userCPF = ""
     static var previews: some View {
-        LoginPage(isLoggedIn: $isLoggedIn)
+        LoginPage(data: DataManagerViewModel(), isLoggedIn: $isLoggedIn, userCPF: $userCPF)
     }
 }
