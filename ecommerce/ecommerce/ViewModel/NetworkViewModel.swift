@@ -29,6 +29,16 @@ class DataManagerViewModel: ObservableObject {
         ]
     }
     
+    func storageWithItems() -> [Product] {
+        var list = [Product]()
+        for e in productList {
+            if e.ammount > 0 {
+                list.append(e)
+            }
+        }
+        return list
+    }
+    
     func newProduct(product: Product) {
         if let index = productList.firstIndex(where: { $0.name == product.name }) {
             productList[index].ammount += product.ammount > 0 ? product.ammount : 0
@@ -43,5 +53,5 @@ class DataManagerViewModel: ObservableObject {
         }
         users.append(user)
     }
-  
+    
 }
