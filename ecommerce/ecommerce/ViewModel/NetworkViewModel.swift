@@ -54,4 +54,13 @@ class DataManagerViewModel: ObservableObject {
         users.append(user)
     }
     
+    func storageIsEmpty() -> Bool {
+        for item in productList {
+            if item.ammount > 0 {
+                return false
+            }
+        }
+        return true
+    }
+  
 }
