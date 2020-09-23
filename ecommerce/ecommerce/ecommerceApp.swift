@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct ecommerceApp: App {
+    private var data: DataManagerViewModel = DataManagerViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(data: data)
         }
     }
 }
