@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LoginPage: View {
-    @State var login: String = ""
-    @State var password: String = ""
+    @State private var login: String = ""
+    @State private var password: String = ""
+    @State private var signupScreen = false
     
     @Binding var isLoggedIn: Bool
     
@@ -48,9 +49,18 @@ struct LoginPage: View {
                             .background(Color.black)
                             .cornerRadius(4)
                     })
+                    Button(action: {
+                        signupScreen.toggle()
+                    }, label: {
+                        Text("Signup")
+                            .padding()
+                    })
                 }
             }
         }
+        .sheet(item: $signupScreen, content: {
+            Text("Hewwo")
+        })
     }
 }
 
