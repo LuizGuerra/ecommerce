@@ -27,7 +27,7 @@ struct BuyPage: View {
                             if data.storageIsEmpty() {
                                 OutOfStockView()
                             } else {
-                                ProductsList(productList: data.productList, shoppingCart: shoppingCart)
+                                ProductsList(productList: listWithItems(), shoppingCart: shoppingCart)
                             }
                         }
                     }
@@ -53,14 +53,9 @@ struct BuyPage: View {
         })
     }
     
-//    private func getPrice() -> String {
-//        let total = shoppingCart.getTotal()
-//        let formatter = NumberFormatter()
-//        formatter.usesGroupingSeparator = true
-//        formatter.numberStyle = .currency
-//        formatter.locale = Locale(identifier: "en_US")
-//        return formatter.string(from: total as NSNumber) ?? "Could not calculate"
-//    }
+    func listWithItems() -> [Product] {
+        return data.productList.filter { $0.ammount > 0 }
+    }
 }
 
 struct BuyPage_Previews: PreviewProvider {
