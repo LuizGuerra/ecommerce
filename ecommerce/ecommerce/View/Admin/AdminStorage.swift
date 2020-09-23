@@ -7,18 +7,9 @@
 
 import SwiftUI
 
-class Storage: ObservableObject {
-    @Published var items: [String] = [
-        "Apple",
-        "Banana",
-        "Orange"
-    ]
-    init() {}
-}
-
 struct AdminStorage: View {
     
-    @ObservedObject var storage = Storage()
+    @ObservedObject var data: DataManagerViewModel
     @State private var addItemView = false
     
     var body: some View {
@@ -28,10 +19,10 @@ struct AdminStorage: View {
                     Form {
                         Section {
                             List {
-                                ForEach (storage.items, id: \.self) { section in
-                                    Text(section)
+                                ForEach (data.productList, id: \.id) { item in
+                                    BuyCard(product: item)
                                 }.onDelete(perform: { indexSet in
-                                    storage.items.remove(atOffsets: indexSet)
+                                    data.productList.remove(atOffsets: indexSet)
                                 })
                             }
                         }
@@ -48,13 +39,13 @@ struct AdminStorage: View {
             }
         }
         .sheet(isPresented: $addItemView, content: {
-            AddItem(isAddingItem: $addItemView, storage: storage)
+            AddItem(isAddingItem: $addItemView, data: data)
         })
     }
 }
 
 struct AdminStorage_Previews: PreviewProvider {
     static var previews: some View {
-        AdminStorage()
+        AdminStorage(data: DataManagerViewModel())
     }
 }
