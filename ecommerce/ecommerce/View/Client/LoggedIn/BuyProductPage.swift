@@ -43,7 +43,8 @@ struct BuyProductPage: View {
                     Section {
                         Button(action: {
                             if let units = Int(ammount) ?? 0, units > 0 {
-                                cart.products.append(Product(name: product.name, price: product.price, ammount: units))
+                                cart.placeOrder(product: Product(name: product.name, price: product.price, ammount: units), maxOrders: product.ammount)
+//                                cart.products.append(Product(name: product.name, price: product.price, ammount: units))
                             }
                             self.presentationMode.wrappedValue.dismiss()
                         }, label: {
