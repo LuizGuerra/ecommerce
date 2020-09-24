@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct FinalizeBuyView: View {
-    var shoppingCart: ShoppingCart
+    @ObservedObject var shoppingCart: ShoppingCart
     var data: DataManagerViewModel
     
     @Binding var finalizeBuySheet: Bool
+    @State private var receipt = false
     
     var body: some View {
         ZStack {
@@ -19,22 +20,26 @@ struct FinalizeBuyView: View {
                 VStack {
                     Form {
                         Section {
-                            List(shoppingCart.products, id: \.id) { product in
-                                HStack {
-                                    BuyCard(product: product)
-                                    Spacer()
-                                    Text(String(product.ammount))
-                                        .font(.largeTitle)
-                                        .fontWeight(.light)
+                            List {
+                                ForEach(shoppingCart.products, id: \.id) { product in
+                                    HStack {
+                                        BuyCard(product: product)
+                                        Spacer()
+                                        Text(String(product.ammount))
+                                            .font(.largeTitle)
+                                            .fontWeight(.light)
+                                    }
                                 }
+                                .onDelete(perform: { indexSet in
+                                    shoppingCart.products.remove(atOffsets: indexSet)
+                                })
                             }
                         }
                     }
                     Section {
                         Button(action: {
                             finalizeBuy()
-                            finalizeBuySheet.toggle()
-                            shoppingCart.emptyCart()
+                            receipt.toggle()
                         }, label: {
                             HStack {
                                 Spacer()
@@ -50,6 +55,9 @@ struct FinalizeBuyView: View {
                 }.navigationTitle("Total: " + getPrice())
             }
         }
+        .sheet(isPresented: $receipt, content: {
+            ReceiptSheetView(cart: shoppingCart, receiptSheet: $receipt, finalizeBuySheet: $finalizeBuySheet)
+        })
     }
     
     private func finalizeBuy() {
