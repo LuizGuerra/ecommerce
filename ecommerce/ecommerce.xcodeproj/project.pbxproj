@@ -13,6 +13,7 @@
 		0451F2F9251A633000A9E9F6 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451F2F8251A633000A9E9F6 /* Client.swift */; };
 		0451F2FC251A636600A9E9F6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451F2FB251A636600A9E9F6 /* Product.swift */; };
 		0451F2FF251A638900A9E9F6 /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451F2FE251A638900A9E9F6 /* NetworkViewModel.swift */; };
+		04930920251C060900137873 /* ReceiptSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493091F251C060900137873 /* ReceiptSheetView.swift */; };
 		0495C2A425159AF400CF998A /* BuyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2A325159AF400CF998A /* BuyPage.swift */; };
 		0495C2A725159B4700CF998A /* UserTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2A625159B4700CF998A /* UserTabView.swift */; };
 		0495C2AC2515A3E800CF998A /* AdminStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495C2AB2515A3E800CF998A /* AdminStorage.swift */; };
@@ -36,6 +37,7 @@
 		0451F2F8251A633000A9E9F6 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		0451F2FB251A636600A9E9F6 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0451F2FE251A638900A9E9F6 /* NetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewModel.swift; sourceTree = "<group>"; };
+		0493091F251C060900137873 /* ReceiptSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSheetView.swift; sourceTree = "<group>"; };
 		0495C2A325159AF400CF998A /* BuyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPage.swift; sourceTree = "<group>"; };
 		0495C2A625159B4700CF998A /* UserTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabView.swift; sourceTree = "<group>"; };
 		0495C2AB2515A3E800CF998A /* AdminStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStorage.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				04EB348F251BEE7300B88A22 /* ProductsList.swift */,
 				04EB3492251BEF8A00B88A22 /* BuyButtonView.swift */,
 				04EB348C251BEE1700B88A22 /* OutOfStockView.swift */,
+				0493091F251C060900137873 /* ReceiptSheetView.swift */,
 			);
 			path = ViewModules;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				0451F2FF251A638900A9E9F6 /* NetworkViewModel.swift in Sources */,
 				0451F2F6251A627A00A9E9F6 /* BuyCard.swift in Sources */,
 				04960928251ACE3E00DCE647 /* ShoppingCartViewModel.swift in Sources */,
+				04930920251C060900137873 /* ReceiptSheetView.swift in Sources */,
 				04960925251AC85A00DCE647 /* FinalizeBuyView.swift in Sources */,
 				0495C2AC2515A3E800CF998A /* AdminStorage.swift in Sources */,
 				04960921251AADD600DCE647 /* BuyProductPage.swift in Sources */,

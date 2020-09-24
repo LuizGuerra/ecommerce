@@ -52,7 +52,7 @@ struct AddItem: View {
                             })
                         }
                     }
-                }
+                }.navigationTitle("Create item")
             }
         }
     }
@@ -64,7 +64,6 @@ struct AddItem: View {
     private func addItem() {
         guard let price = Float(ammount), let ammount = Int(ammount) else { return }
         data.productList.insert(Product(name: itemName, price: price, ammount: ammount), at: 0)
-        print("Item added")
     }
 }
 
