@@ -25,8 +25,4 @@ class ShoppingCart: ObservableObject {
             products.insert(product, at: 0)
         }
     }
-    
-    func emptyCart() {
-        products.removeAll()
-    }
 }
